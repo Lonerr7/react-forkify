@@ -1,0 +1,47 @@
+@import '../../../../vars.scss';
+
+.searchResult {
+  &__link {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    transition: all .3s ease;
+
+    &:hover {
+      text-decoration: none;
+      background-color: $header-bg;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__img {
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    object-fit: cover;
+    margin-left: 30px;
+    margin-right: 20px;
+  }
+
+  &__textBox {
+    max-width: 250px;
+  }
+
+  &__title {
+    color: $icon-color;
+    font-size: 16px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  &__subtitle {
+    color: $grey-color;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
