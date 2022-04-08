@@ -1,0 +1,23 @@
+@import '../../../../../vars.scss';
+
+.recipeControlsInfo {
+  &__iconBox {
+    svg {
+      width: 26px;
+      height: 26px;
+      color: $icon-color;
+      margin-right: 12px;
+    }
+  }
+
+  &__number {
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 5px;
+    color: $text-color;
+  }
+
+  &__text {
+    font-size: 18px;
+  }
+}

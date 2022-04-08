@@ -1,0 +1,82 @@
+@import '../../../../vars.scss';
+
+.recipeControls {
+  padding: 75px 80px 35px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $header-bg;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    margin-right: 45px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__info_second {
+    margin-right: 15px;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    // max-width: 395px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btn {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+    width: 22px;
+    height: 22px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+      color: $icon-color;
+    }
+  }
+
+  &__aboutBtn {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    background-image: $bg-color;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.07);
+    }
+  }
+
+  &__aboutIcon {
+    width: 22px;
+    height: 22px;
+    color: #fff;
+  }
+}
