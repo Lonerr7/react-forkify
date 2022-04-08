@@ -1,0 +1,23 @@
+@import '../../../vars.scss';
+
+.searchError {
+  display: flex;
+  padding: 50px 40px;
+  max-width: 400px;
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    color: $icon-color;
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__text:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}

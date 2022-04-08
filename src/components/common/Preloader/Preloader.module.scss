@@ -1,0 +1,13 @@
+@import '../../../vars.scss';
+
+.preloader__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader {
+  text-align: center;
+  width: 50px;
+  color: $icon-color;
+}
