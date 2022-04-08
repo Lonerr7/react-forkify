@@ -45,7 +45,7 @@ export const getRecipes = (searchWord) => async (dispatch) => {
       dispatch(setIsFetchingSuccess(true));
       const response = await recipesAPI.getRecipes(searchWord);
       dispatch(setIsFetchingSuccess(false));
-      console.log(response.data.results);
+
       if (response.data.results !== 0) {
         dispatch(getRecipesSuccess(response.data.data.recipes));
       } else {
