@@ -1,0 +1,21 @@
+@import '../../../../vars.scss';
+
+.recipeIngredients {
+  padding: 50px 80px;
+  background-color: $recipe-ingr-bg;
+
+  &__title {
+    color: $icon-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
