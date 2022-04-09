@@ -31,7 +31,7 @@ const getRecipesSuccess = (newRecipes) => ({
   newRecipes,
 });
 
-const setIsFetchingSuccess = (isFetching) => ({
+export const setIsFetchingSuccess = (isFetching) => ({
   type: SET_IS_FETCHING,
   isFetching,
 });

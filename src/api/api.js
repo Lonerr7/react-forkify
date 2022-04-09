@@ -8,6 +8,12 @@ const axiosInstance = axios.create({
 
 export const recipesAPI = {
   getRecipes(recipe) {
-    return axiosInstance.get(`?search=${recipe}`);
+    return axiosInstance.get(`?search=${recipe}&key=${apiKey}`);
+  },
+};
+
+export const currentRecipeAPI = {
+  getCurrentRecipeRequest(id) {
+    return axiosInstance.get(`/${id}?key=${apiKey}`);
   },
 };

@@ -1,7 +1,7 @@
 import s from './RecipeIngredient.module.scss';
 import { TiTick } from 'react-icons/ti';
 
-const RecipeIngredient = () => {
+const RecipeIngredient = ({ quantity, descr }) => {
   return (
     <li className={s.recipeIngredient}>
       <div className={s.recipeIngredient__iconBox}>
@@ -12,8 +12,8 @@ const RecipeIngredient = () => {
         />
       </div>
       <div className={s.recipeIngredient__textBox}>
-        <p className={s.recipeIngredient__quantity}>1</p>
-        <p className={s.recipeIngredient__descr}>medium</p>
+        <p className={s.recipeIngredient__quantity}>{quantity}</p>
+        <p className={s.recipeIngredient__descr}>{descr}</p>
       </div>
     </li>
   );

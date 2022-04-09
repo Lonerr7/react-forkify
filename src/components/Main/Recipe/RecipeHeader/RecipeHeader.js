@@ -1,17 +1,17 @@
 import s from './RecipeHeader.module.scss';
 
-const RecipeHeader = () => {
+const RecipeHeader = ({title, imgUrl}) => {
   return (
     <div className={s.recipeHeader}>
       <div className={s.recipeHeader__imgBox}>
         <img
           className={s.recipeHeader__img}
-          src="https://forkify-api.herokuapp.com/images/FlatBread21of1a180.jpg"
+          src={imgUrl}
           alt="recipe pic"
         />
       </div>
       <h1 className={s.recipeHeader__title}>
-        <span>Title</span>
+        <span>{title}</span>
       </h1>
     </div>
   );

@@ -1,12 +1,12 @@
 import s from './Main.module.scss';
 import SearchResults from './SearchResults/SearchResults';
-import Recipe from './Recipe/Recipe';
+import RecipeContainer from './Recipe/RecipeContainer/RecipeContainer';
 
 const Main = () => {
   return (
     <main className={s.main}>
       <SearchResults />
-      <Recipe />
+      <RecipeContainer />
     </main>
   );
 };
