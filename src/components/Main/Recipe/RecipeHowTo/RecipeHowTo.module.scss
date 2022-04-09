@@ -1,0 +1,56 @@
+@import '../../../../vars.scss';
+
+.recipeHowTo {
+  padding: 50px 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: $icon-color;
+  }
+
+  &__text {
+    font-size: 17px;
+    margin-bottom: 35px;
+    color: $grey-color;
+    line-height: 27px;
+
+    span {
+      font-weight: 700;
+      display: inline-block;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    background-image: $bg-color;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 160px;
+    transition: all .3s;
+
+    span {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      text-decoration: none;
+      transform: scale(1.05);
+    }
+  }
+
+  &__arrow {
+    margin-top: -2px;
+  }
+}
