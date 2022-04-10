@@ -1,18 +1,18 @@
 @import '../../../../vars.scss';
 
 .searchResult {
-  &__link {
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
-    transition: all .3s ease;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
 
-    &:hover {
-      text-decoration: none;
-      background-color: $header-bg;
-      transform: translateY(-2px);
-    }
+  &:hover {
+    text-decoration: none;
+    background-color: $header-bg;
+    transform: translateY(-2px);
   }
+  
 
   &__img {
     border-radius: 50%;

@@ -1,25 +1,24 @@
 import { currentRecipeAPI } from '../api/api';
-import { setIsFetchingSuccess } from './recipesReducer';
 
 const GET_CURRENT_RECIPE = 'GET_CURRENT_RECIPE';
-const GET_CURRENT_RECIPE_ID = 'GET_CURRENT_RECIPE_ID';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 const initialState = {
-  currentRecipeId: null,
   currentRecipe: null,
+  isFetching: false,
 };
 
 const currentRecipeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_CURRENT_RECIPE_ID:
-      return {
-        ...state,
-        currentRecipeId: action.recipeId,
-      };
     case GET_CURRENT_RECIPE:
       return {
         ...state,
         currentRecipe: action.newRecipe,
+      };
+    case TOGGLE_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching,
       };
     default:
       return state;
@@ -31,20 +30,16 @@ const getCurrentRecipeSuccess = (newRecipe) => ({
   newRecipe,
 });
 
-export const getCurrentRecipeIdSuccess = (recipeId) => ({
-  type: GET_CURRENT_RECIPE_ID,
-  recipeId,
+const toggleIsFetchingSuccess = (isFetching) => ({
+  type: TOGGLE_IS_FETCHING,
+  isFetching,
 });
 
-export const getCurrentRecipe = () => async (dispatch, getState) => {
+export const getCurrentRecipe = (id) => async (dispatch) => {
   try {
-    dispatch(getCurrentRecipeSuccess(null));
-    dispatch(setIsFetchingSuccess(true));
-    const response = await currentRecipeAPI.getCurrentRecipeRequest(
-      getState().currentRecipe.currentRecipeId
-    );
-    dispatch(setIsFetchingSuccess(false));
-    console.log(response.data);
+    dispatch(toggleIsFetchingSuccess(true));
+    const response = await currentRecipeAPI.getCurrentRecipeRequest(id);
+    dispatch(toggleIsFetchingSuccess(false));
     dispatch(getCurrentRecipeSuccess(response.data.data.recipe));
   } catch (error) {
     console.error(error);
