@@ -1,11 +1,13 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddeware from 'redux-thunk';
+import bookmarksReducer from './bookmarksReducer';
 import currentRecipeReducer from './currentRecipeReducer';
 import recipesReducer from './recipesReducer';
 
 const reducers = combineReducers({
   recipes: recipesReducer,
   currentRecipe: currentRecipeReducer,
+  bookmarks: bookmarksReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunkMiddeware));

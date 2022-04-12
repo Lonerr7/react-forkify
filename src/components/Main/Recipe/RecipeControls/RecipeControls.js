@@ -4,8 +4,18 @@ import { MdPeopleAlt } from 'react-icons/md';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 import RecipeControlsInfo from './RecipeControlsInfo/RecipeControlsInfo';
+import { connect } from 'react-redux';
+import {
+  setBookmarkedRecipeSuccess,
+  deleteBookmarkedRecipeSuccess,
+} from '../../../../redux/bookmarksReducer';
 
-const RecipeControls = () => {
+const RecipeControls = ({
+  recipesIds,
+  setBookmarkedRecipeSuccess,
+  currentRecipe,
+  deleteBookmarkedRecipeSuccess,
+}) => {
   return (
     <div className={s.recipeControls}>
       <div className={s.recipeControls__box}>
@@ -32,11 +42,32 @@ const RecipeControls = () => {
       </div>
       <div className={s.recipeControls__about}>
         <button className={s.recipeControls__aboutBtn}>
-          <BsBookmark className={s.recipeControls__aboutIcon} />
+          {recipesIds.includes(currentRecipe.id) ? (
+            <BsFillBookmarkFill
+              className={s.recipeControls__aboutIcon}
+              onClick={() => deleteBookmarkedRecipeSuccess(currentRecipe.id)}
+            />
+          ) : (
+            <BsBookmark
+              className={s.recipeControls__aboutIcon}
+              onClick={() =>
+                setBookmarkedRecipeSuccess(currentRecipe, currentRecipe.id)
+              }
+            />
+          )}
         </button>
       </div>
     </div>
   );
 };
 
-export default RecipeControls;
+const mapStateToProps = (state) => ({
+  recipesIds: state.bookmarks.recipesIds,
+});
+
+const dispatchToProps = {
+  setBookmarkedRecipeSuccess,
+  deleteBookmarkedRecipeSuccess,
+};
+
+export default connect(mapStateToProps, dispatchToProps)(RecipeControls);
