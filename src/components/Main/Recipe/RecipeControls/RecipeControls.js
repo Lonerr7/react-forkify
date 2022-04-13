@@ -6,15 +6,15 @@ import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 import RecipeControlsInfo from './RecipeControlsInfo/RecipeControlsInfo';
 import { connect } from 'react-redux';
 import {
-  setBookmarkedRecipeSuccess,
-  deleteBookmarkedRecipeSuccess,
+  setBookmarkedRecipe,
+  deleteBookmarkedRecipe,
 } from '../../../../redux/bookmarksReducer';
 
 const RecipeControls = ({
   recipesIds,
-  setBookmarkedRecipeSuccess,
+  setBookmarkedRecipe,
   currentRecipe,
-  deleteBookmarkedRecipeSuccess,
+  deleteBookmarkedRecipe,
 }) => {
   return (
     <div className={s.recipeControls}>
@@ -45,13 +45,13 @@ const RecipeControls = ({
           {recipesIds.includes(currentRecipe.id) ? (
             <BsFillBookmarkFill
               className={s.recipeControls__aboutIcon}
-              onClick={() => deleteBookmarkedRecipeSuccess(currentRecipe.id)}
+              onClick={() => deleteBookmarkedRecipe(currentRecipe.id)}
             />
           ) : (
             <BsBookmark
               className={s.recipeControls__aboutIcon}
               onClick={() =>
-                setBookmarkedRecipeSuccess(currentRecipe, currentRecipe.id)
+                setBookmarkedRecipe(currentRecipe, currentRecipe.id)
               }
             />
           )}
@@ -66,8 +66,8 @@ const mapStateToProps = (state) => ({
 });
 
 const dispatchToProps = {
-  setBookmarkedRecipeSuccess,
-  deleteBookmarkedRecipeSuccess,
+  setBookmarkedRecipe,
+  deleteBookmarkedRecipe,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(RecipeControls);

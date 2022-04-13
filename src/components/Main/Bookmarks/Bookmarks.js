@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import SearchResult from '../SearchResults/SearchResult/SearchResult';
-import s from './Bookmarks.module.scss';
 
-const Bookmarks = ({ bookmaredRecipes }) => {
-  const items = bookmaredRecipes.map((r) => (
+const Bookmarks = ({ bookmarkedRecipes }) => {
+  const items = bookmarkedRecipes.map((r) => (
     <SearchResult
       key={r.id}
       id={r.id}
@@ -17,7 +16,7 @@ const Bookmarks = ({ bookmaredRecipes }) => {
 };
 
 const mapStateToProps = (state) => ({
-  bookmaredRecipes: state.bookmarks.bookmaredRecipes,
+  bookmarkedRecipes: state.bookmarks.bookmarkedRecipes,
 });
 
 export default connect(mapStateToProps, null)(Bookmarks);
