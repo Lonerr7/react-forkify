@@ -6,12 +6,7 @@
     align-items: center;
   }
 
-  &__listItem {
-    margin-left: 15px;
-    &:not(:last-child) {
-      margin-right: 15px;
-    }
-  }
+  
 
   &__listBtn {
     display: flex;
