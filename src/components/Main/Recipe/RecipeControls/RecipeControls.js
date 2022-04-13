@@ -41,21 +41,21 @@ const RecipeControls = ({
         </div>
       </div>
       <div className={s.recipeControls__about}>
-        <button className={s.recipeControls__aboutBtn}>
-          {recipesIds.includes(currentRecipe.id) ? (
-            <BsFillBookmarkFill
-              className={s.recipeControls__aboutIcon}
-              onClick={() => deleteBookmarkedRecipe(currentRecipe.id)}
-            />
-          ) : (
-            <BsBookmark
-              className={s.recipeControls__aboutIcon}
-              onClick={() =>
-                setBookmarkedRecipe(currentRecipe, currentRecipe.id)
-              }
-            />
-          )}
-        </button>
+        {recipesIds.includes(currentRecipe.id) ? (
+          <button
+            className={s.recipeControls__aboutBtn}
+            onClick={() => deleteBookmarkedRecipe(currentRecipe.id)}
+          >
+            <BsFillBookmarkFill className={s.recipeControls__aboutIcon} />
+          </button>
+        ) : (
+          <button
+            className={s.recipeControls__aboutBtn}
+            onClick={() => setBookmarkedRecipe(currentRecipe, currentRecipe.id)}
+          >
+            <BsBookmark className={s.recipeControls__aboutIcon} />
+          </button>
+        )}
       </div>
     </div>
   );
