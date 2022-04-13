@@ -3,12 +3,15 @@ import './reset.scss';
 import './index.scss';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import store from './redux/redux-store';
+import store, { persistor } from './redux/redux-store';
 import AppContainer from './AppContainer';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
-    <AppContainer />
-  </Provider>
+  <PersistGate loading={null} persistor={persistor}>
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  </PersistGate>
 );

@@ -6,8 +6,8 @@ import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 import RecipeControlsInfo from './RecipeControlsInfo/RecipeControlsInfo';
 import { connect } from 'react-redux';
 import {
-  setBookmarkedRecipe,
-  deleteBookmarkedRecipe,
+  setBookmarkedRecipeSuccess,
+  deleteBookmarkedRecipeSuccess,
 } from '../../../../redux/bookmarksReducer';
 
 const RecipeControls = ({
@@ -66,8 +66,8 @@ const mapStateToProps = (state) => ({
 });
 
 const dispatchToProps = {
-  setBookmarkedRecipe,
-  deleteBookmarkedRecipe,
+  setBookmarkedRecipe: setBookmarkedRecipeSuccess,
+  deleteBookmarkedRecipe: deleteBookmarkedRecipeSuccess,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(RecipeControls);

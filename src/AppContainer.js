@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import App from './App';
-import { getBookmarkedRecipesAndIds } from './redux/bookmarksReducer';
+// import { getBookmarkedRecipesAndIds } from './redux/bookmarksReducer';
 
 const AppContainer = ({ getBookmarkedRecipesAndIds }) => {
   useEffect(() => {
-    getBookmarkedRecipesAndIds();
+    // getBookmarkedRecipesAndIds();
 
     // eslint-disable-next-line
   }, []);
@@ -14,7 +14,7 @@ const AppContainer = ({ getBookmarkedRecipesAndIds }) => {
 };
 
 const dispatchToProps = {
-  getBookmarkedRecipesAndIds,
+  // getBookmarkedRecipesAndIds,
 };
 
 export default connect(null, dispatchToProps)(AppContainer);
