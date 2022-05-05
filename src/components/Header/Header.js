@@ -11,7 +11,6 @@ const Header = () => {
       <img className={s.header__logo} src={logo} alt="logo" />
       <SearchFormContainer />
       <Controls />
-      
     </div>
   );
 };

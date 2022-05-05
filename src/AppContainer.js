@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import App from './App';
+import { clearRecipes } from './redux/recipesSlice';
 // import { getBookmarkedRecipesAndIds } from './redux/bookmarksReducer';
 
-const AppContainer = ({ getBookmarkedRecipesAndIds }) => {
+const AppContainer = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    // getBookmarkedRecipesAndIds();
+    return () => {
+      console.log(`App unmount`);
+      dispatch(clearRecipes());
+    };
 
     // eslint-disable-next-line
   }, []);
@@ -13,8 +19,4 @@ const AppContainer = ({ getBookmarkedRecipesAndIds }) => {
   return <App />;
 };
 
-const dispatchToProps = {
-  // getBookmarkedRecipesAndIds,
-};
-
-export default connect(null, dispatchToProps)(AppContainer);
+export default AppContainer;

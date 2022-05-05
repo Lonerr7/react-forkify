@@ -3,7 +3,7 @@ import './reset.scss';
 import './index.scss';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import store, { persistor } from './redux/redux-store';
+import store, { persistor } from './redux/store';
 import AppContainer from './AppContainer';
 import { PersistGate } from 'redux-persist/integration/react';
 

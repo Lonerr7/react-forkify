@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import SearchForm from '../SearchForm';
-import { getRecipes } from '../../../../redux/recipesReducer';
+import { getRecipes } from '../../../../redux/recipesSlice';
+import { useDispatch } from 'react-redux';
 
-const SearchFormContainer = ({ getRecipes }) => {
+const SearchFormContainer = () => {
+  const dispatch = useDispatch();
+
   const [search, setSearch] = useState('');
 
   const onSearchChange = (e) => {
     setSearch(e.target.value);
   };
   const btnSearchHandler = (search) => {
-    getRecipes(search);
+    dispatch(getRecipes({recipe: search}));
     setSearch('');
   };
 
@@ -23,10 +25,4 @@ const SearchFormContainer = ({ getRecipes }) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
-
-const dispatchToProps = {
-  getRecipes,
-};
-
-export default connect(mapStateToProps, dispatchToProps)(SearchFormContainer);
+export default SearchFormContainer;
