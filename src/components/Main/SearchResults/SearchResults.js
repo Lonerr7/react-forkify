@@ -9,23 +9,22 @@ const SearchResults = () => {
   const isFetching = useSelector((state) => state.recipes.isFetching);
   console.log(isFetching);
 
-  const elements =
-    recipes.length !== 0
-      ? recipes.map((r) => (
-          <SearchResult
-            key={r.id}
-            id={r.id}
-            img={r.image_url}
-            title={r.title}
-            subtitle={r.publisher}
-          />
-        ))
-      : '';
+  const elements = recipes
+    ? recipes.map((r) => (
+        <SearchResult
+          key={r.id}
+          id={r.id}
+          img={r.image_url}
+          title={r.title}
+          subtitle={r.publisher}
+        />
+      ))
+    : '';
 
   return (
     <ul className={s.searchResults}>
       {/*If no recipes found - display error message by checking if recipesArr.length === 0 */}
-      {/* {recipes?.length === 0 ? <SearchError /> : elements} */}
+      {recipes?.length === 0 ? <SearchError /> : elements}
 
       {isFetching ? <Preloader /> : elements}
     </ul>

@@ -11,8 +11,8 @@ const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
   reducers: {
-    clearRecipes(state) {
-      state.recipesArr = [];
+    setRecipesToNull(state) {
+      state.recipesArr = null;
     },
     getRecipesSuccess(state, action) {
       state.recipesArr = action.payload.recipesArr;
@@ -22,7 +22,6 @@ const recipesSlice = createSlice({
     builder
       .addCase(getRecipes.pending, (state, action) => {
         state.isFetching = true;
-        // state.recipesArr = null;
       })
       .addCase(getRecipes.fulfilled, (state, action) => {
         state.isFetching = false;
@@ -34,12 +33,13 @@ const recipesSlice = createSlice({
 export const getRecipes = createAsyncThunk(
   'recipes/getRecipes',
   async function ({ recipe }, { dispatch }) {
+    dispatch(setRecipesToNull());
+
     const response = await recipesAPI.getRecipes(recipe);
-    console.log(response);
 
     return response.data.data.recipes;
   }
 );
 
-export const { clearRecipes, getRecipesSuccess } = recipesSlice.actions;
+export const { setRecipesToNull, getRecipesSuccess } = recipesSlice.actions;
 export default recipesSlice.reducer;
