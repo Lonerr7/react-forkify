@@ -1,15 +1,20 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrentRecipe } from '../../../../redux/currentRecipeSlice';
 import s from './SearchResult.module.scss';
 
-const SearchResult = ({
-  img,
-  title,
-  subtitle,
-  id,
-  getCurrentRecipe,
-  activeRecipe,
-}) => {
+const SearchResult = ({ img, title, subtitle, id }) => {
+  const dispatch = useDispatch();
+  const activeRecipe = useSelector((state) => state.currentRecipe.activeRecipe);
+
   return (
-    <li className={s.searchResult} onClick={() => getCurrentRecipe(id)}>
+    <li
+      className={
+        activeRecipe.id === id
+          ? `${s.searchResult} ${s.active}`
+          : s.searchResult
+      }
+      onClick={() => dispatch(getCurrentRecipe({ id }))}
+    >
       <img className={s.searchResult__img} src={img} alt="recipe pic" />
       <div className={s.searchResult__textBox}>
         <h4 className={s.searchResult__title}>{title}</h4>
@@ -18,9 +23,5 @@ const SearchResult = ({
     </li>
   );
 };
-
-const mapStateToProps = (state) => ({
-  activeRecipe: state.currentRecipe.activeRecipe,
-});
 
 export default SearchResult;

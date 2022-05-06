@@ -20,7 +20,7 @@ const recipesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getRecipes.pending, (state, action) => {
+      .addCase(getRecipes.pending, (state) => {
         state.isFetching = true;
       })
       .addCase(getRecipes.fulfilled, (state, action) => {
@@ -36,6 +36,7 @@ export const getRecipes = createAsyncThunk(
     dispatch(setRecipesToNull());
 
     const response = await recipesAPI.getRecipes(recipe);
+    console.log(response.data.data.recipes);
 
     return response.data.data.recipes;
   }

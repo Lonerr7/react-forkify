@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <main className={s.main}>
       <SearchResults />
-      {/* <RecipeContainer /> */}
+      <RecipeContainer />
     </main>
   );
 };

@@ -18,7 +18,7 @@ const Recipe = ({ currentRecipe, isFetching }) => {
                 title={currentRecipe.title}
                 imgUrl={currentRecipe.image_url}
               />
-              <RecipeControls currentRecipe={currentRecipe} />
+              {/* <RecipeControls currentRecipe={currentRecipe} /> */}
               <RecipeIngredients ingredients={currentRecipe.ingredients} />
               <RecipeHowTo directionUrl={currentRecipe.source_url} />
             </div>

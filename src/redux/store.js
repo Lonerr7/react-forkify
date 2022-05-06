@@ -10,16 +10,18 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import currentRecipeSlice from './currentRecipeSlice';
 import recipesSlice from './recipesSlice';
 
 const rootReducer = combineReducers({
   recipes: recipesSlice,
+  currentRecipe: currentRecipeSlice,
 });
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['recipes']
+  blacklist: ['recipes', 'currentRecipe'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
