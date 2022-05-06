@@ -7,7 +7,6 @@ import s from './SearchResults.module.scss';
 const SearchResults = () => {
   const recipes = useSelector((state) => state.recipes.recipesArr);
   const isFetching = useSelector((state) => state.recipes.isFetching);
-  console.log(isFetching);
 
   const elements = recipes
     ? recipes.map((r) => (

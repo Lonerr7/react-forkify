@@ -10,12 +10,14 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import bookmarksSlice from './bookmarksSlice';
 import currentRecipeSlice from './currentRecipeSlice';
 import recipesSlice from './recipesSlice';
 
 const rootReducer = combineReducers({
   recipes: recipesSlice,
   currentRecipe: currentRecipeSlice,
+  bookmarks: bookmarksSlice,
 });
 
 const persistConfig = {

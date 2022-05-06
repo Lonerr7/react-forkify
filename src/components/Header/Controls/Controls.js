@@ -18,7 +18,7 @@ const Controls = () => {
             <BiBookmark className={s.controls__bookmarkIcon} />
             <span>BOOKMARKS</span>
           </button>
-          {/* <Bookmarks /> */}
+          <Bookmarks />
         </li>
       </ul>
     </nav>

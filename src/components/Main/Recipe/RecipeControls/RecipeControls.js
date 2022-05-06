@@ -4,18 +4,18 @@ import { MdPeopleAlt } from 'react-icons/md';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 import RecipeControlsInfo from './RecipeControlsInfo/RecipeControlsInfo';
-import { connect } from 'react-redux';
-import {
-  setBookmarkedRecipeSuccess,
-  deleteBookmarkedRecipeSuccess,
-} from '../../../../redux/bookmarksReducer';
 
-const RecipeControls = ({
-  recipesIds,
-  setBookmarkedRecipe,
-  currentRecipe,
+import { useDispatch, useSelector } from 'react-redux';
+import {
   deleteBookmarkedRecipe,
-}) => {
+  setBookmarkedRecipe,
+} from '../../../../redux/bookmarksSlice';
+
+const RecipeControls = ({ currentRecipe }) => {
+  const recipesIds = useSelector((state) => state.bookmarks.recipesIds);
+  const dispatch = useDispatch();
+  console.log(currentRecipe);
+
   return (
     <div className={s.recipeControls}>
       <div className={s.recipeControls__box}>
@@ -44,14 +44,23 @@ const RecipeControls = ({
         {recipesIds.includes(currentRecipe.id) ? (
           <button
             className={s.recipeControls__aboutBtn}
-            onClick={() => deleteBookmarkedRecipe(currentRecipe.id)}
+            onClick={() =>
+              dispatch(deleteBookmarkedRecipe({ id: currentRecipe.id }))
+            }
           >
             <BsFillBookmarkFill className={s.recipeControls__aboutIcon} />
           </button>
         ) : (
           <button
             className={s.recipeControls__aboutBtn}
-            onClick={() => setBookmarkedRecipe(currentRecipe, currentRecipe.id)}
+            onClick={() =>
+              dispatch(
+                setBookmarkedRecipe({
+                  newBookmarkedRecipe: currentRecipe,
+                  newRecipeId: currentRecipe.id,
+                })
+              )
+            }
           >
             <BsBookmark className={s.recipeControls__aboutIcon} />
           </button>
@@ -61,13 +70,13 @@ const RecipeControls = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  recipesIds: state.bookmarks.recipesIds,
-});
+// const mapStateToProps = (state) => ({
+//   recipesIds: state.bookmarks.recipesIds,
+// });
 
-const dispatchToProps = {
-  setBookmarkedRecipe: setBookmarkedRecipeSuccess,
-  deleteBookmarkedRecipe: deleteBookmarkedRecipeSuccess,
-};
+// const dispatchToProps = {
+//   setBookmarkedRecipe: setBookmarkedRecipeSuccess,
+//   deleteBookmarkedRecipe: deleteBookmarkedRecipeSuccess,
+// };
 
-export default connect(mapStateToProps, dispatchToProps)(RecipeControls);
+export default RecipeControls;

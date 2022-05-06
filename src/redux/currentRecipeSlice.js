@@ -29,11 +29,8 @@ export const getCurrentRecipe = createAsyncThunk(
   async function ({ id }) {
     const response = await currentRecipeAPI.getCurrentRecipeRequest(id);
 
-    console.log(response.data.data.recipe);
-
     return response.data.data.recipe;
   }
 );
 
-export const {} = currentRecipeSlice.actions;
 export default currentRecipeSlice.reducer;

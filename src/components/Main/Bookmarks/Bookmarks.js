@@ -1,7 +1,11 @@
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import SearchResult from '../SearchResults/SearchResult/SearchResult';
 
-const Bookmarks = ({ bookmarkedRecipes }) => {
+const Bookmarks = () => {
+  const bookmarkedRecipes = useSelector(
+    (state) => state.bookmarks.bookmarkedRecipes
+  );
+
   const items = bookmarkedRecipes.map((r) => (
     <SearchResult
       key={r.id}
@@ -12,11 +16,7 @@ const Bookmarks = ({ bookmarkedRecipes }) => {
     />
   ));
 
-  return <ul className='bookmarks'>{items}</ul>;
+  return <ul className="bookmarks">{items}</ul>;
 };
 
-const mapStateToProps = (state) => ({
-  bookmarkedRecipes: state.bookmarks.bookmarkedRecipes,
-});
-
-export default connect(mapStateToProps, null)(Bookmarks);
+export default Bookmarks;

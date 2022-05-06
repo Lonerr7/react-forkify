@@ -36,7 +36,6 @@ export const getRecipes = createAsyncThunk(
     dispatch(setRecipesToNull());
 
     const response = await recipesAPI.getRecipes(recipe);
-    console.log(response.data.data.recipes);
 
     return response.data.data.recipes;
   }
