@@ -1,7 +1,17 @@
 import s from './SearchForm.module.scss';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-const SearchForm = ({ search, onSearchChange, btnSearchHandler }) => {
+type SearchFormProps = {
+  search: string;
+  onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  btnSearchHandler: (search: string) => void;
+};
+
+const SearchForm: React.FC<SearchFormProps> = ({
+  search,
+  onSearchChange,
+  btnSearchHandler,
+}) => {
   return (
     <div className={s.searchForm}>
       <input

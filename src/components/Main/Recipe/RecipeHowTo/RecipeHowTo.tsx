@@ -1,7 +1,11 @@
 import s from './RecipeHowTo.module.scss';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
-const RecipeHowTo = ({ directionUrl }) => {
+type RecipeHowToProps = {
+  directionUrl: string;
+};
+
+const RecipeHowTo: React.FC<RecipeHowToProps> = ({ directionUrl }) => {
   return (
     <div className={s.recipeHowTo}>
       <h2 className={s.recipeHowTo__title}>How to cook it</h2>

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import SearchForm from '../SearchForm';
 import { getRecipes } from '../../../../redux/recipesSlice';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../../../hooks/hooks';
 
-const SearchFormContainer = () => {
-  const dispatch = useDispatch();
+const SearchFormContainer: React.FC = () => {
+  const dispatch = useAppDispatch();
 
   const [search, setSearch] = useState('');
 
-  const onSearchChange = (e) => {
+  const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-  const btnSearchHandler = (search) => {
+  const btnSearchHandler = (search: string) => {
     dispatch(getRecipes(search));
     setSearch('');
   };

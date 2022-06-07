@@ -3,7 +3,7 @@ import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { BiBookmark } from 'react-icons/bi';
 import Bookmarks from '../../Main/Bookmarks/Bookmarks';
 
-const Controls = () => {
+const Controls: React.FC = () => {
   return (
     <nav className={s.controls}>
       <ul className={s.controls__list}>

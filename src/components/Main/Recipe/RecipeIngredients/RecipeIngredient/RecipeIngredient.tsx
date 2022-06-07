@@ -1,7 +1,12 @@
 import s from './RecipeIngredient.module.scss';
 import { TiTick } from 'react-icons/ti';
 
-const RecipeIngredient = ({ quantity, descr }) => {
+type RecipeIngredientProps = {
+  quantity: number;
+  descr: string;
+};
+
+const RecipeIngredient: React.FC<RecipeIngredientProps> = ({ quantity, descr }) => {
   return (
     <li className={s.recipeIngredient}>
       <div className={s.recipeIngredient__iconBox}>

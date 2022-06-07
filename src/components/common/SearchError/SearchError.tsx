@@ -1,7 +1,7 @@
 import s from './SearchError.module.scss';
 import { IoWarningOutline } from 'react-icons/io5';
 
-const SearchError = () => {
+const SearchError: React.FC = () => {
   return (
     <div className={s.searchError}>
       <IoWarningOutline className={s.searchError__icon} />

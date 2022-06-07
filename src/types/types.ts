@@ -12,7 +12,7 @@ export type RecipesState = {
   totalItemsCount: number;
 };
 
-type Ingredient = {
+export type Ingredient = {
   quantity: number;
   unit: string;
   description: string;

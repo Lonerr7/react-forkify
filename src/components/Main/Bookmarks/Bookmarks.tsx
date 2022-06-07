@@ -1,8 +1,8 @@
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../hooks/hooks';
 import SearchResult from '../SearchResults/SearchResult/SearchResult';
 
-const Bookmarks = () => {
-  const bookmarkedRecipes = useSelector(
+const Bookmarks: React.FC = () => {
+  const bookmarkedRecipes = useAppSelector(
     (state) => state.bookmarks.bookmarkedRecipes
   );
 

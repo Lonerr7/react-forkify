@@ -1,7 +1,13 @@
-import React from 'react';
 import s from './Pagination.module.scss';
 
-const Pagination = ({
+type PaginationProps = {
+  recipesPerPage: number;
+  totalRecipesCount: number;
+  onPageChange: (newPage: number) => void;
+  currentPage: number;
+};
+
+const Pagination: React.FC<PaginationProps> = ({
   recipesPerPage,
   totalRecipesCount,
   currentPage,
@@ -19,7 +25,11 @@ const Pagination = ({
         onClick={() => {
           onPageChange(el);
         }}
-        className={el === currentPage ? `${s.pagination__btn} ${s.active}` : s.pagination__btn}
+        className={
+          el === currentPage
+            ? `${s.pagination__btn} ${s.active}`
+            : s.pagination__btn
+        }
       >
         {el}
       </button>

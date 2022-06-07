@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
 import { changePage } from '../../../redux/recipesSlice';
 import Pagination from '../../common/Pagination/Pagination';
 import Preloader from '../../common/Preloader/Preloader';
@@ -6,12 +6,14 @@ import SearchError from '../../common/SearchError/SearchError';
 import SearchResult from './SearchResult/SearchResult';
 import s from './SearchResults.module.scss';
 
-const SearchResults = () => {
-  const recipes = useSelector((state) => state.recipes.recipesArr);
-  const isFetching = useSelector((state) => state.recipes.isFetching);
-  const currentPage = useSelector((state) => state.recipes.currentPage);
-  const totalItemsCount = useSelector((state) => state.recipes.totalItemsCount);
-  const dispatch = useDispatch();
+const SearchResults: React.FC = () => {
+  const recipes = useAppSelector((state) => state.recipes.recipesArr);
+  const isFetching = useAppSelector((state) => state.recipes.isFetching);
+  const currentPage = useAppSelector((state) => state.recipes.currentPage);
+  const totalItemsCount = useAppSelector(
+    (state) => state.recipes.totalItemsCount
+  );
+  const dispatch = useAppDispatch();
   const itemsPerPage = 7;
 
   const indexOfLastRecipe = currentPage * itemsPerPage;
@@ -19,7 +21,7 @@ const SearchResults = () => {
   const currentRecipes =
     recipes && recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
-  const changePageHandler = (newPage) => {
+  const changePageHandler = (newPage: number) => {
     dispatch(changePage(newPage));
   };
 

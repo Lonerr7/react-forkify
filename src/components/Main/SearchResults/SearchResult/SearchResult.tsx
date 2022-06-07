@@ -1,10 +1,25 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../../../hooks/hooks';
 import { getCurrentRecipe } from '../../../../redux/currentRecipeSlice';
+import { CurrentRecipe } from '../../../../types/types';
 import s from './SearchResult.module.scss';
 
-const SearchResult = ({ img, title, subtitle, id }) => {
-  const dispatch = useDispatch();
-  const activeRecipe = useSelector((state) => state.currentRecipe.activeRecipe);
+type SearchResultProps = {
+  id: string;
+  img: string;
+  title: string;
+  subtitle: string;
+};
+
+const SearchResult: React.FC<SearchResultProps> = ({
+  img,
+  title,
+  subtitle,
+  id,
+}) => {
+  const dispatch = useAppDispatch();
+  const activeRecipe = useAppSelector(
+    (state) => state.currentRecipe.activeRecipe
+  ) as CurrentRecipe;
 
   return (
     <li
