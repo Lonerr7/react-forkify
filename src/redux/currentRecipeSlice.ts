@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { currentRecipeAPI } from '../api/api';
+import { CurrentRecipe, CurrentRecipeState } from '../types/types';
 
-const initialState = {
+const initialState: CurrentRecipeState = {
   currentRecipe: null,
   isFetching: false,
   activeRecipe: {},
@@ -16,17 +17,20 @@ const currentRecipeSlice = createSlice({
       .addCase(getCurrentRecipe.pending, (state) => {
         state.isFetching = true;
       })
-      .addCase(getCurrentRecipe.fulfilled, (state, action) => {
-        state.isFetching = false;
-        state.currentRecipe = action.payload;
-        state.activeRecipe = action.payload;
-      });
+      .addCase(
+        getCurrentRecipe.fulfilled,
+        (state, action: PayloadAction<CurrentRecipe>) => {
+          state.isFetching = false;
+          state.currentRecipe = action.payload;
+          state.activeRecipe = action.payload;
+        }
+      );
   },
 });
 
 export const getCurrentRecipe = createAsyncThunk(
   'currentRecipe/getCurrentRecipe',
-  async function ({ id }) {
+  async function (id: string) {
     const response = await currentRecipeAPI.getCurrentRecipeRequest(id);
 
     return response.data.data.recipe;

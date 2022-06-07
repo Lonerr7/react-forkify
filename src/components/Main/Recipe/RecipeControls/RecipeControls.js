@@ -44,7 +44,7 @@ const RecipeControls = ({ currentRecipe }) => {
           <button
             className={s.recipeControls__aboutBtn}
             onClick={() =>
-              dispatch(deleteBookmarkedRecipe({ id: currentRecipe.id }))
+              dispatch(deleteBookmarkedRecipe(currentRecipe.id))
             }
           >
             <BsFillBookmarkFill className={s.recipeControls__aboutIcon} />

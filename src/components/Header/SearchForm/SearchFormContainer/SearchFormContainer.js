@@ -12,7 +12,7 @@ const SearchFormContainer = () => {
     setSearch(e.target.value);
   };
   const btnSearchHandler = (search) => {
-    dispatch(getRecipes({recipe: search}));
+    dispatch(getRecipes(search));
     setSearch('');
   };
 

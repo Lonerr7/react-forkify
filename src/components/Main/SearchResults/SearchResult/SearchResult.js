@@ -13,7 +13,7 @@ const SearchResult = ({ img, title, subtitle, id }) => {
           ? `${s.searchResult} ${s.active}`
           : s.searchResult
       }
-      onClick={() => dispatch(getCurrentRecipe({ id }))}
+      onClick={() => dispatch(getCurrentRecipe(id))}
     >
       <img className={s.searchResult__img} src={img} alt="recipe pic" />
       <div className={s.searchResult__textBox}>

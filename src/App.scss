@@ -30,6 +30,18 @@
   z-index: 100;
   background-color: #fff;
   transition: all 0.6s;
+  display: flex;
+  flex-direction: column;
+
+  &__error {
+    padding: 28px 0;
+    color: $icon-color;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    align-self: center;
+    justify-self: center;
+  }
 }
 
 .controls__listBtn {

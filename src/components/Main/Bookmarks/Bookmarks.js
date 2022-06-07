@@ -16,7 +16,15 @@ const Bookmarks = () => {
     />
   ));
 
-  return <ul className="bookmarks">{items}</ul>;
+  return (
+    <ul className="bookmarks">
+      {bookmarkedRecipes.length !== 0 ? (
+        items
+      ) : (
+        <p className="bookmarks__error">Empty</p>
+      )}
+    </ul>
+  );
 };
 
 export default Bookmarks;
