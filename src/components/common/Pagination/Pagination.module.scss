@@ -1,0 +1,19 @@
+.pagination {
+  width: 60%;
+  margin: 15px auto 0 auto;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__btn {
+    all: unset;
+    cursor: pointer;
+  }
+}
+
+.active {
+  font-weight: 700;
+}

@@ -5,6 +5,8 @@ const initialState = {
   recipesArr: null,
   isFetching: false,
   nothingFound: false,
+  currentPage: 1,
+  totalItemsCount: 0,
 };
 
 const recipesSlice = createSlice({
@@ -17,6 +19,9 @@ const recipesSlice = createSlice({
     getRecipesSuccess(state, action) {
       state.recipesArr = action.payload.recipesArr;
     },
+    changePage(state, action) {
+      state.currentPage = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -26,6 +31,7 @@ const recipesSlice = createSlice({
       .addCase(getRecipes.fulfilled, (state, action) => {
         state.isFetching = false;
         state.recipesArr = action.payload;
+        state.totalItemsCount = action.payload.length;
       });
   },
 });
@@ -41,5 +47,5 @@ export const getRecipes = createAsyncThunk(
   }
 );
 
-export const { setRecipesToNull, getRecipesSuccess } = recipesSlice.actions;
+export const { setRecipesToNull, getRecipesSuccess, changePage } = recipesSlice.actions;
 export default recipesSlice.reducer;

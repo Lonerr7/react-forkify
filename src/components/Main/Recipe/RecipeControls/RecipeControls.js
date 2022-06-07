@@ -14,7 +14,6 @@ import {
 const RecipeControls = ({ currentRecipe }) => {
   const recipesIds = useSelector((state) => state.bookmarks.recipesIds);
   const dispatch = useDispatch();
-  console.log(currentRecipe);
 
   return (
     <div className={s.recipeControls}>
